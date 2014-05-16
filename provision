@@ -16,6 +16,8 @@ sudo cp -v ./etc/interfaces /etc/network/interfaces
 sudo cp -v ./etc/hostapd /etc/default/hostapd
 sudo cp -v ./etc/sysctl.conf /etc/sysctl.conf
 sudo cp -v ./etc/hostapd.conf  /etc/hostapd/hostapd.conf
+sudo sed -i '/PASSWORD/$(cat password)/g' /etc/dhcp/dhcpd.conf
+
 sudo ifconfig wlan0 192.168.11.1
 
 sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
