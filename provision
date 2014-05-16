@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
 
-apt-get update
-apt-get install hostapd isc-dhcp-server git vim-nox tmux
+apt-get -y update
+apt-get -y install \
+    hostapd \
+    isc-dhcp-server \
+    git \
+    vim-nox \
+    tmux \
+    wget \
+    iptables
 
 git clone https://github.com/kragniz/dot-files.git
 make -C dot-files
