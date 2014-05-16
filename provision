@@ -20,3 +20,13 @@ sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -
 sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
 sudo sh -c "iptables-save > /etc/iptables.ipv4.nat" 
+
+wget http://www.adafruit.com/downloads/adafruit_hostapd.zip 
+unzip adafruit_hostapd.zip
+
+if [[ ! -f /usr/sbin/hostapd.ORIG ]]; then
+    sudo mv /usr/sbin/hostapd /usr/sbin/hostapd.ORIG
+fi
+
+sudo mv hostapd /usr/sbin
+sudo chmod 755 /usr/sbin/hostapd
