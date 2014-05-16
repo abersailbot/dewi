@@ -1,40 +1,40 @@
 #!/usr/bin/env bash
 
-sudo apt-get update
-sudo apt-get install hostapd isc-dhcp-server git vim-nox tmux
+apt-get update
+apt-get install hostapd isc-dhcp-server git vim-nox tmux
 
 git clone https://github.com/kragniz/dot-files.git
 make -C dot-files
 
-sudo cp -v ./etc/dhcpd.conf /etc/dhcp/dhcpd.conf
-sudo cp -v ./etc/isc-dhcp-server /etc/default/isc-dhcp-server
-sudo cp -v ./etc/interfaces /etc/network/interfaces
-sudo cp -v ./etc/hostapd /etc/default/hostapd
-sudo cp -v ./etc/sysctl.conf /etc/sysctl.conf
-sudo cp -v ./etc/hostapd.conf  /etc/hostapd/hostapd.conf
-sudo sed -i '/PASSWORD/$(cat password)/g' /etc/dhcp/dhcpd.conf
+cp -v ./etc/dhcpd.conf /etc/dhcp/dhcpd.conf
+cp -v ./etc/isc-dhcp-server /etc/default/isc-dhcp-server
+cp -v ./etc/interfaces /etc/network/interfaces
+cp -v ./etc/hostapd /etc/default/hostapd
+cp -v ./etc/sysctl.conf /etc/sysctl.conf
+cp -v ./etc/hostapd.conf  /etc/hostapd/hostapd.conf
+sed -i '/PASSWORD/$(cat password)/g' /etc/dhcp/dhcpd.conf
 
-sudo ifconfig wlan0 192.168.11.1
+ifconfig wlan0 192.168.11.1
 
-sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
+sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
 
-sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
-sudo sh -c "iptables-save > /etc/iptables.ipv4.nat" 
+iptables-save > /etc/iptables.ipv4.nat
 
 wget http://www.adafruit.com/downloads/adafruit_hostapd.zip 
 unzip adafruit_hostapd.zip
 
 if [[ ! -f /usr/sbin/hostapd.ORIG ]]; then
-    sudo mv -v /usr/sbin/hostapd /usr/sbin/hostapd.ORIG
+    mv -v /usr/sbin/hostapd /usr/sbin/hostapd.ORIG
 fi
 
-sudo mv -v hostapd /usr/sbin
-sudo chmod 755 /usr/sbin/hostapd
+mv -v hostapd /usr/sbin
+chmod 755 /usr/sbin/hostapd
 
-sudo service hostapd start
-sudo service isc-dhcp-server start
-sudo update-rc.d hostapd enable
-sudo update-rc.d isc-dhcp-server enable 
+service hostapd start
+service isc-dhcp-server start
+update-rc.d hostapd enable
+update-rc.d isc-dhcp-server enable 
