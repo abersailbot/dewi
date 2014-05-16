@@ -34,7 +34,7 @@ iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 iptables-save > /etc/iptables.ipv4.nat
 
 wget http://www.adafruit.com/downloads/adafruit_hostapd.zip 
-unzip adafruit_hostapd.zip
+unzip -fo adafruit_hostapd.zip
 rm adafruit_hostapd.zip
 
 if [[ ! -f /usr/sbin/hostapd.ORIG ]]; then
