@@ -8,7 +8,7 @@ apt-get -y install \
     vim-nox \
     tmux \
     wget \
-    iptables
+    unzip \
 
 git clone https://github.com/kragniz/dot-files.git
 make -C dot-files
