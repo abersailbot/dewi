@@ -30,3 +30,8 @@ fi
 
 sudo mv hostapd /usr/sbin
 sudo chmod 755 /usr/sbin/hostapd
+
+sudo service hostapd start
+sudo service isc-dhcp-server start
+sudo update-rc.d hostapd enable
+sudo update-rc.d isc-dhcp-server enable 
