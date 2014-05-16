@@ -14,6 +14,7 @@ git clone https://github.com/kragniz/dot-files.git
 make -C dot-files
 
 cp -v ./etc/hostname /etc/hostname
+cp -v ./etc/motd /etc/motd
 
 cp -v ./etc/dhcpd.conf /etc/dhcp/dhcpd.conf
 cp -v ./etc/isc-dhcp-server /etc/default/isc-dhcp-server
