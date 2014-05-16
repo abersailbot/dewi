@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
 
+sudo apt-get update
+sudo apt-get install hostapd isc-dhcp-server
 
+sudo cp ./etc/dhcp.conf /etc/dhcp/dhcpd.conf
+sudo cp ./etc/isc-dhcp-server /etc/default/isc-dhcp-server
+sudo cp ./etc/interfaces /etc/network/interfaces
+sudo cp ./etc/hostapd.conf  /etc/hostapd/hostapd.conf
+sudo cp ./etc/hostapd /etc/default/hostapd
+sudo cp ./etc/sysctl.conf /etc/sysctl.conf
