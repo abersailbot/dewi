@@ -3,15 +3,20 @@
 sudo apt-get update
 sudo apt-get install hostapd isc-dhcp-server git vim-nox tmux
 
-sudo cp -v ./etc/dhcp.conf /etc/dhcp/dhcpd.conf
+mkdir ~/git
+pushd ~/git
+git clone https://github.com/kragniz/dot-files.git
+cd dot-files
+make
+popd
+
+sudo cp -v ./etc/dhcpd.conf /etc/dhcp/dhcpd.conf
 sudo cp -v ./etc/isc-dhcp-server /etc/default/isc-dhcp-server
 sudo cp -v ./etc/interfaces /etc/network/interfaces
-
-sudo ifconfig wlan0 192.168.11.1
-
-sudo cp -v ./etc/hostapd.conf  /etc/hostapd/hostapd.conf
 sudo cp -v ./etc/hostapd /etc/default/hostapd
 sudo cp -v ./etc/sysctl.conf /etc/sysctl.conf
+sudo cp -v ./etc/hostapd.conf  /etc/hostapd/hostapd.conf
+sudo ifconfig wlan0 192.168.11.1
 
 sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
 
