@@ -3,12 +3,8 @@
 sudo apt-get update
 sudo apt-get install hostapd isc-dhcp-server git vim-nox tmux
 
-mkdir ~/git
-pushd ~/git
 git clone https://github.com/kragniz/dot-files.git
-cd dot-files
-make
-popd
+make -C dot-files
 
 sudo cp -v ./etc/dhcpd.conf /etc/dhcp/dhcpd.conf
 sudo cp -v ./etc/isc-dhcp-server /etc/default/isc-dhcp-server
