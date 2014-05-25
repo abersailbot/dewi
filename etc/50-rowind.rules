@@ -1,0 +1,1 @@
+DRIVERS=="ch341-uart", SYMLINK+="rowind"
