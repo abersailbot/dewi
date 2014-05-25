@@ -1,0 +1,1 @@
+DRIVERS=="ftdi_sio", ATTRS{interface}=="USB <-> Serial Cable", SYMLINK+="gps"
