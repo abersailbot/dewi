@@ -13,6 +13,8 @@ apt-get -y install \
 git clone https://github.com/kragniz/dot-files.git
 make -C dot-files
 
+cp -v ./etc/50-rowind.rules /etc/udev/rules.d/
+
 cp -v ./etc/hostname /etc/hostname
 cp -v ./etc/motd /etc/motd
 
