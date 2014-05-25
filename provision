@@ -15,6 +15,7 @@ make -C dot-files
 
 cp -v ./etc/50-rowind.rules /etc/udev/rules.d/
 cp -v ./etc/51-gps.rules /etc/udev/rules.d/
+udevadm control --reload-rules
 
 cp -v ./etc/hostname /etc/hostname
 cp -v ./etc/motd /etc/motd
