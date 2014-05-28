@@ -52,4 +52,9 @@ chmod 755 /usr/sbin/hostapd
 service hostapd start
 service isc-dhcp-server start
 update-rc.d hostapd enable
-update-rc.d isc-dhcp-server enable 
+update-rc.d isc-dhcp-server enable
+
+git clone https://github.com/kragniz/librowind.git
+pushd librowind
+make install
+popd
