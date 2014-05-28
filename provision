@@ -11,6 +11,7 @@ apt-get -y install \
     unzip \
 
 git clone https://github.com/kragniz/dot-files.git
+sed -i "'29,30d" dot-files/gitconfig
 make -C dot-files
 
 cp -v ./etc/50-rowind.rules /etc/udev/rules.d/
@@ -55,6 +56,4 @@ update-rc.d hostapd enable
 update-rc.d isc-dhcp-server enable
 
 git clone https://github.com/kragniz/librowind.git
-pushd librowind
-make install
-popd
+make -C librowind install
