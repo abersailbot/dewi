@@ -2,13 +2,14 @@
 
 apt-get -y update
 apt-get -y install \
+    git \
     hostapd \
     isc-dhcp-server \
-    git \
-    vim-nox \
+    screen \
     tmux \
-    wget \
     unzip \
+    vim-nox \
+    wget
 
 git clone https://github.com/kragniz/dot-files.git
 sed -i "'29,30d" dot-files/gitconfig
