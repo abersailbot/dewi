@@ -68,3 +68,7 @@ git clone git://github.com/amperka/ino.git
 pushd ino
 sudo python setup.py install
 popd
+
+sudo wget https://raw.github.com/lurch/rpi-serial-console/master/rpi-serial-console -O /usr/bin/rpi-serial-console
+sudo chmod +x /usr/bin/rpi-serial-console
+sudo rpi-serial-console disable
