@@ -4,3 +4,6 @@
 [submodule "dewi-behaviour"]
 	path = dewi-behaviour
 	url = https://github.com/abersailbot/dewi-behaviour
+[submodule "dewi-arduino"]
+	path = dewi-arduino
+	url = https://github.com/abersailbot/dewi-arduino
