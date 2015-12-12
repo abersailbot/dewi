@@ -7,3 +7,6 @@
 [submodule "dewi-arduino"]
 	path = dewi-arduino
 	url = https://github.com/abersailbot/dewi-arduino
+[submodule "boatd"]
+	path = boatd
+	url = https://github.com/boatd/boatd
