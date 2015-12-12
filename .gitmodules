@@ -1,0 +1,3 @@
+[submodule "dewi-boatd-driver"]
+	path = dewi-boatd-driver
+	url = https://github.com/abersailbot/dewi-boatd-driver
