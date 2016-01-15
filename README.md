@@ -2,7 +2,7 @@ Dewi
 ====
 
 Repository for dewi. This tracks versions of separate components and
-configuration.
+configuration for a functioning boat setup.
 
 To clone, run:
 
