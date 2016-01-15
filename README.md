@@ -16,4 +16,4 @@ submodules. To do this, run:
 
     $ git submodule update --remote
 
-This will update the submodules to the latest versions.
+This will update the submodules to the latest commit on the default branch.
