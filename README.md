@@ -15,3 +15,5 @@ When new commits are added to the upstream repositories, you need to update the
 submodules. To do this, run:
 
     $ git submodule update --remote
+
+This will update the submodules to the latest versions.
