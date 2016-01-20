@@ -22,4 +22,4 @@ This will update the submodules to the latest commit on the default branch.
 Docs
 ====
 
-Docs can be read at <http://dewi.readthedocs.org/>_.
+Docs can be read at http://dewi.readthedocs.org/.
