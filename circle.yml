@@ -1,7 +1,0 @@
-machine:
-    services:
-        - docker
-
-test:
-    override:
-        - docker run "resin/rpi-raspbian" test
