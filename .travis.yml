@@ -1,0 +1,9 @@
+language: python
+sudo: required
+
+env:
+  - ARCH=x64
+  - ARCH=arm
+
+script:
+  - "bash -ex .qemu-ci.sh"
