@@ -1,0 +1,49 @@
+Integration testing of configuration will be done using a QEMUed jessie
+raspbian image.
+
+Building disk image
+===================
+
+Building a new disk image to use for testing is currently a manual process. In
+the future, this could be automated.
+
+1. Grab a copy of the latest 'raspbian jessie lite' image from the raspberry pi
+   website (https://www.raspberrypi.org/downloads/raspbian/). I'm using
+   ``2015-11-21-raspbian-jessie-lite.img`` here.
+
+2. Use `fdisk` to find the partition boundaries in this image::
+
+    ~/g/dewi (master) $ fdisk -l 2015-11-21-raspbian-jessie-lite.img 
+    Disk 2015-11-21-raspbian-jessie-lite.img: 1.4 GiB, 1458569216 bytes, 2848768 sectors
+    Units: sectors of 1 * 512 = 512 bytes
+    Sector size (logical/physical): 512 bytes / 512 bytes
+    I/O size (minimum/optimal): 512 bytes / 512 bytes
+    Disklabel type: dos
+    Disk identifier: 0xb3c5e39a
+
+    Device                               Boot  Start     End Sectors  Size Id Type
+    2015-11-21-raspbian-jessie-lite.img1        8192  131071  122880   60M  c W95 FAT32 (LBA)
+    2015-11-21-raspbian-jessie-lite.img2      131072 2848767 2717696  1.3G 83 Linux
+
+3. Next, we need to mount that image. To do this, we need to use the
+   information ``fdisk`` told us. The start of the main partition is block
+   ``131072``, and the block size is ``512``, so the total offset is
+   ``131072*512`` = ``67108864``.
+
+   Make a temporary directory to mount the image in::
+
+       $ mkdir raspbian-jessie-mount-point
+
+   and mount the image::
+
+       $ sudo mount -o loop,offset=67108864 2015-11-21-raspbian-jessie-lite.img raspbian-jessie-mount-point
+
+4. Edit ``raspbian-jessie-mount-point/etc/ld.so.preload`` and comment out all
+   lines.
+
+5. Edit ``raspbian-jessie-mount-point/etc/fstab`` and comment out any entry
+   related to ``mmcblk``.
+
+6. Unmount the image::
+
+       $ sudo umount raspbian-jessie-mount-point
