@@ -58,6 +58,15 @@ the future, this could be automated.
 
        $ sudo umount raspbian-jessie-mount-point
 
+The resulting image can be reduced in size by converting to a sparse file::
+
+    $ fallocate -v --dig-holes 2015-11-21-raspbian-jessie-lite.img.test
+
+Or compressing::
+
+    $ xz 2015-11-21-raspbian-jessie-lite.img
+
+
 Booting test machine
 ====================
 
