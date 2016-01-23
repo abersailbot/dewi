@@ -61,7 +61,9 @@ Clone a copy of that repository and copy ``kernel-qemu``::
     $ git clone git@github.com:polaco1782/raspberry-qemu.git
     $ cp raspberry-qemu/kernel-qemu .
 
-Now a boot should be possible. Run::
+Now a boot should be possible. Run
+
+.. code-block:: bash
 
     $ qemu-system-arm -kernel kernel-qemu \
         -cpu arm1176 \
