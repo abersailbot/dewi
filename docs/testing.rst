@@ -47,3 +47,29 @@ the future, this could be automated.
 6. Unmount the image::
 
        $ sudo umount raspbian-jessie-mount-point
+
+Booting test machine
+====================
+
+Now that we have an image to boot, we need a kernel to run. Sadly, a modified
+kernel is required, since QEMU does not support raspberry pi hardware. Luckily
+the work of patching and building has already been done by someone else.
+https://github.com/polaco1782/raspberry-qemu appears to work well.
+
+Clone a copy of that repository and copy ``kernel-qemu``::
+
+    $ git clone git@github.com:polaco1782/raspberry-qemu.git
+    $ cp raspberry-qemu/kernel-qemu .
+
+Now a boot should be possible. Run::
+
+    $ qemu-system-arm -kernel kernel-qemu \
+        -cpu arm1176 \
+        -m 256 \
+        -M versatilepb \
+        -no-reboot \
+        -serial stdio \
+        -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" \
+        -net user,hostfwd=tcp::10022-:22 \
+        -net nic -hda \
+        2015-11-21-raspbian-jessie-lite.img
