@@ -1,6 +1,16 @@
 Integration testing of configuration will be done using a QEMUed jessie
 raspbian image.
 
+These steps assume you have the necessary tools installed.
+
+Fedora::
+
+    $ sudo dnf install qemu-system-arm 
+
+Debian/Ubuntu::
+
+    $ sudo apt install qemu-system-arm
+
 Building disk image
 ===================
 
@@ -13,7 +23,7 @@ the future, this could be automated.
 
 2. Use `fdisk` to find the partition boundaries in this image::
 
-    ~/g/dewi (master) $ fdisk -l 2015-11-21-raspbian-jessie-lite.img 
+    ~/g/dewi (master) $ fdisk -l 2015-11-21-raspbian-jessie-lite.img
     Disk 2015-11-21-raspbian-jessie-lite.img: 1.4 GiB, 1458569216 bytes, 2848768 sectors
     Units: sectors of 1 * 512 = 512 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
