@@ -69,6 +69,7 @@ Now a boot should be possible. Run::
         -M versatilepb \
         -no-reboot \
         -serial stdio \
+        -display none \
         -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" \
         -net user,hostfwd=tcp::10022-:22 \
         -net nic -hda \
