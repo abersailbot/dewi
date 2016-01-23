@@ -60,7 +60,8 @@ the future, this could be automated.
 
 The resulting image can be reduced in size by converting to a sparse file::
 
-    $ fallocate -v --dig-holes 2015-11-21-raspbian-jessie-lite.img.test
+    $ fallocate -v --dig-holes 2015-11-21-raspbian-jessie-lite.img
+    2015-11-21-raspbian-jessie-lite.img: 494.7 MiB (518729728 bytes) converted to sparse holes.
 
 Or compressing::
 
