@@ -11,7 +11,9 @@ install:
     - unxz "2015-11-21-raspbian-jessie-lite.img.xz"
     - git clone https://github.com/polaco1782/raspberry-qemu.git
 
-script:
+before_script:
     - qemu-system-arm -kernel raspberry-qemu/kernel-qemu -cpu arm1176 -m 256 -M versatilepb -no-reboot -serial stdio -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -net user,hostfwd=tcp::10022-:22 -net nic -display none -hda 2015-11-21-raspbian-jessie-lite.img &
     - ./test/wait-for-ssh
-    - sshpass -p raspberry ssh localhost -o StrictHostKeyChecking=no -p 10022 -l pi "cat /etc/os-release"
+
+script:
+    - ./test/run-on-pi "cat /etc/os-release"
