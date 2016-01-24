@@ -3,7 +3,8 @@ language: python
 sudo: true
 
 install:
-    sudo apt-get install qemu-user-static wget
+    - sudo apt-get update
+    - sudo apt-get install qemu-user-static wget
 
 script:
     - qemu-system-arm -kernel kernel-qemu \
