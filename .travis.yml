@@ -2,12 +2,16 @@ language: generic
 sudo: true
 dist: trusty
 
-install:
+before_install:
     - sudo apt-get update
-    - sudo apt-get install qemu-system-arm wget xz-utils
+    - sudo apt-get install qemu-system-arm wget xz-utils sshpass
 
-script:
+install:
     - wget "https://kragniz.eu/pub/2015-11-21-raspbian-jessie-lite.img.xz"
     - unxz "2015-11-21-raspbian-jessie-lite.img.xz"
     - git clone https://github.com/polaco1782/raspberry-qemu.git
-    - qemu-system-arm -kernel raspberry-qemu/kernel-qemu -cpu arm1176 -m 256 -M versatilepb -no-reboot -serial stdio -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -net user,hostfwd=tcp::10022-:22 -net nic -display none -hda 2015-11-21-raspbian-jessie-lite.img
+
+script:
+    - qemu-system-arm -kernel raspberry-qemu/kernel-qemu -cpu arm1176 -m 256 -M versatilepb -no-reboot -serial stdio -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -net user,hostfwd=tcp::10022-:22 -net nic -display none -hda 2015-11-21-raspbian-jessie-lite.img &
+    - ./test/wait-for-ssh
+    - sshpass -p raspberry ssh localhost -p 10022 -l pi "uname -a"
