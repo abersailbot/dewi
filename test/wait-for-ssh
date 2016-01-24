@@ -6,6 +6,6 @@ while true; do
         exit
     else
         echo "Nothing found on port 10022, sleeping..."
-        sleep 5
+        sleep 10
     fi
 done
