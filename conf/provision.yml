@@ -4,7 +4,10 @@
   sudo: yes
   tasks:
     - name: update apt cache
-      apt: update_cache=yes
+      command: apt-get update
+
+    - name: install ansible prerequisites
+      command: apt-get install -y python python-apt python-pycurl sshpass
 
     - name: install base requirements
       apt: name=gpsd state=present
