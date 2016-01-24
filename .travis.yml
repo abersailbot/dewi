@@ -1,0 +1,18 @@
+language: python
+
+sudo: true
+
+install:
+    sudo apt install qemu-user-static wget
+
+script:
+    - qemu-system-arm -kernel kernel-qemu \
+                        -cpu arm1176 \
+                        -m 256 \
+                        -M versatilepb \
+                        -no-reboot \
+                        -serial stdio \
+                        -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" \
+                        -net user,hostfwd=tcp::10022-:22 \
+                        -net nic -display none -hda \
+                    2015-11-21-raspbian-jessie-lite.img
