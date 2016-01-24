@@ -4,7 +4,7 @@ dist: trusty
 
 before_install:
     - sudo apt-get update
-    - sudo apt-get install qemu-system-arm wget xz-utils sshpass
+    - sudo apt-get install qemu-system-arm wget xz-utils sshpass ansible
 
 install:
     - wget "https://kragniz.eu/pub/2015-11-21-raspbian-jessie-lite.img.xz"
