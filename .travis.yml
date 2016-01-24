@@ -4,7 +4,7 @@ sudo: true
 
 install:
     - sudo apt-get update
-    - sudo apt-get install qemu-user-static wget
+    - sudo apt-get install qemu-system-arm wget
 
 script:
     - qemu-system-arm -kernel kernel-qemu \
