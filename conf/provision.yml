@@ -1,7 +1,10 @@
 ---
 - hosts: all
-  gather_facts: false
+  gather_facts: true
+  sudo: yes
   tasks:
+    - name: update apt cache
+      apt: update_cache=yes
+
     - name: install base requirements
-      sudo: true
-      raw: apt install -y gpsd
+      apt: name=gpsd state=present
