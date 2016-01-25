@@ -9,7 +9,9 @@
     - name: install ansible prerequisites
       command: apt-get install -y python python-apt python-pycurl sshpass
 
-    - name: install base requirements
+    - name: install requirements
       apt: name={{ item }} state=present
       with_items:
-          - gpsd
+          - gpsd # gps management, used by boatd
+          - tmux
+          - git
