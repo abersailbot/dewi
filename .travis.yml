@@ -18,3 +18,8 @@ before_script:
 script:
     - ./test/run-on-pi "cat /etc/os-release"
     - ansible-playbook -i conf/hosts -e 'host_key_checking=False' conf/provision.yml -vvvv
+
+notifications:
+    slack:
+        rooms:
+            secure: WpyAaszbggP94p73r+p4uC2hZKqV01ftCZaL8CZ1z0xSfuNH+eTd/8I2PDMwfixrUazkItnhO/TFxrnVO3iY7Ffuebj7JkiHHWtho/3ZjhLQbrA4A2B2tBcelHdk7RmV26625T1LuDeJ87f7tKIsRWRnD0L6USn5qwGVIQWURKJeMwMReghjGfj3n7dHU6rKVBt51ROt8Ue0cI0iptNgmriSPmRaED+sX5+qG1mH/aToe3SccpLRHs88nTHFEZudpbNLZbx2s4nLGc7okQvVQ6EHRPbMwBb4s/gOV6vOR2+M1ucLI3Zc1bHE3UuxMh9gqGiMnpz4V7PiQMgZtYZPUm1XP1A0js1NKhAbPa2gr5ty4IbtXtD5jBps8gn9lMvDgexOniLBqwOOzulmHYv8K+X0vwEP9CiBBS+IK8fGy7nhDb5zHYQ9Hn1OHafICESL6RupKOObsmfYp1kxBPyhsgjetC+Pn1r9MTacB5QYNy51iTcCk5deD12wiejKp7fMzPO/ocKMt74rCEQJKk3MqdKb+ECxvq0FlkjT1TLWWDLmzzTpEiH88GIfZ4fl2yXhNfBHIe3vpQcVEpIE5r1OdlrBRWfvn0+PJo2mPVcPJc1oALSF6ptdkZ2wfF//mnmoUByXhKHnOS6ZQN0pheTUDiMd67Vmg1nQHuPi11PKX6A=
