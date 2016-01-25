@@ -17,7 +17,7 @@ before_script:
 
 script:
     - ./test/run-on-pi "cat /etc/os-release"
-    - ansible-playbook -i conf/hosts -e 'host_key_checking=False' conf/provision.yml -vvvv
+    - ansible-playbook -i ansible/hosts -e 'host_key_checking=False' ansible/provision.yml -vvvv
 
 notifications:
     slack:
