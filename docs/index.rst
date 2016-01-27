@@ -6,6 +6,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   hardware-spec
    testing
 
 .. include:: ../README.rst
