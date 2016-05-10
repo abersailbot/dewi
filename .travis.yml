@@ -9,6 +9,8 @@ before_install:
 cache:
     directories:
         - var
+    cache:
+        timeout: 1000
 
 install:
     - ./test/get-raspbian-image
