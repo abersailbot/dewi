@@ -11,10 +11,7 @@ cache:
         - 2015-11-21-raspbian-jessie-lite.img
 
 install:
-    - if [ ! -f "2015-11-21-raspbian-jessie-lite.img" ]; then
-    -     wget "https://kragniz.eu/pub/2015-11-21-raspbian-jessie-lite.img.xz"
-    -     unxz "2015-11-21-raspbian-jessie-lite.img.xz"
-    - fi
+    - ./test/get-raspbian-image
     - git clone https://github.com/polaco1782/raspberry-qemu.git
 
 before_script:
