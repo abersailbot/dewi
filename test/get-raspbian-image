@@ -2,8 +2,9 @@
 if [ -f "var/2015-11-21-raspbian-jessie-lite.img" ];
 then
     echo "2015-11-21-raspbian-jessie-lite.img exists in cache"
+    cp "var/2015-11-21-raspbian-jessie-lite.img" .
 else
     wget "https://kragniz.eu/pub/2015-11-21-raspbian-jessie-lite.img.xz"
     unxz "2015-11-21-raspbian-jessie-lite.img.xz"
-    mv *.img var
+    cp *.img var
 fi
