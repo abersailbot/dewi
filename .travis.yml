@@ -6,14 +6,9 @@ before_install:
     - sudo apt-get update
     - sudo apt-get install qemu-system-arm wget xz-utils sshpass ansible
 
-cache:
-    directories:
-        - var
-    cache:
-        timeout: 1000
-
 install:
-    - ./test/get-raspbian-image
+    - wget "https://kragniz.eu/pub/2015-11-21-raspbian-jessie-lite.img.xz"
+    - unxz "2015-11-21-raspbian-jessie-lite.img.xz"
     - git clone https://github.com/polaco1782/raspberry-qemu.git
 
 before_script:
