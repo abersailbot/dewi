@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-if [ ! -f "2015-11-21-raspbian-jessie-lite.img" ]; then
+if [ -f "2015-11-21-raspbian-jessie-lite.img" ];
+then
+    echo "2015-11-21-raspbian-jessie-lite.img exists in cache"
+else
     wget "https://kragniz.eu/pub/2015-11-21-raspbian-jessie-lite.img.xz"
     unxz "2015-11-21-raspbian-jessie-lite.img.xz"
 fi
