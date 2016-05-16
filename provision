@@ -72,3 +72,4 @@ popd
 sudo wget https://raw.github.com/lurch/rpi-serial-console/master/rpi-serial-console -O /usr/bin/rpi-serial-console
 sudo chmod +x /usr/bin/rpi-serial-console
 sudo rpi-serial-console disable
+sudo python -c "$(curl -fsSL https://raw.githubusercontent.com/platformio/platformio/master/scripts/get-platformio.py)"
