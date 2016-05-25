@@ -68,7 +68,8 @@ pip install -U platformio
 
 platformio settings set enable_prompts No
 platformio settings set enable_telemetry No
-platformio platforms install "ARDUINO"
+platformio platforms install atmelavr
+
 
 
 
