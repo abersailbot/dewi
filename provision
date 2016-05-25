@@ -63,7 +63,8 @@ pip install -U platformio
 
 platformio settings set enable_prompts No
 platformio settings set enable_telemetry No
-platformio platforms install "ARDUINO"
+platformio platforms install atmelavr
+
 
 sudo wget https://raw.github.com/lurch/rpi-serial-console/master/rpi-serial-console -O /usr/bin/rpi-serial-console
 sudo chmod +x /usr/bin/rpi-serial-console
