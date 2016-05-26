@@ -16,10 +16,11 @@ before_script:
     - ./test/wait-for-ssh
     - ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
     - sshpass -p raspberry ssh-copy-id -o StrictHostKeyChecking=no pi@localhost -p 10022
+    - echo "Host localhost\n  User pi\n  Port 10022" > .ssh/config
 
 script:
     - ./test/run-on-pi "cat /etc/os-release"
-    - ansible-playbook -i ansible/hosts -e 'host_key_checking=False' ansible/provision.yml -vvvv
+    - ./deploy localhost
 
 notifications:
     slack:
