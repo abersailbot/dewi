@@ -9,7 +9,7 @@ fi
 
 host=$1
 
-function check_ssh {
+function check_ssh () {
     status=$(ssh -q $host echo ok 2>&1)
     if [[ $status == ok ]] ; then
         echo "Can connect using ssh"
@@ -19,4 +19,11 @@ function check_ssh {
     fi
 }
 
+function run_on_host () {
+    command=$1
+    ssh $host $command
+}
+
 check_ssh
+
+run_on_host "echo testing"
