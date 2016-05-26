@@ -31,3 +31,4 @@ run "mkdir -vp ~/dewi"
 # copy local files - only copy files tracked by git
 rsync -vaz --delete --max-size=10M ./ $host:~/dewi
 
+run "cd ~/dewi; sudo ./provision"
