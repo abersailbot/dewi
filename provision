@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -xe
+
 apt-get -y update
 apt-get -y install \
     arduino \
@@ -15,25 +17,22 @@ apt-get -y install \
     vim-nox \
     wget
 
-git clone https://github.com/kragniz/dot-files.git
-sed -i "'29,30d" dot-files/gitconfig
-make -C dot-files
-
-cp -v ./etc/50-rowind.rules /etc/udev/rules.d/
-cp -v ./etc/51-gps.rules /etc/udev/rules.d/
-cp -v ./etc/52-arduino.rules /etc/udev/rules.d/
+cp ./etc/50-rowind.rules /etc/udev/rules.d/
+cp ./etc/51-gps.rules /etc/udev/rules.d/
+cp ./etc/52-arduino.rules /etc/udev/rules.d/
 udevadm control --reload-rules
 
-cp -v ./etc/hostname /etc/hostname
-cp -v ./etc/motd /etc/motd
+cp ./etc/hostname /etc/hostname
+cp ./etc/motd /etc/motd
 
-cp -v ./etc/dhcpd.conf /etc/dhcp/dhcpd.conf
-cp -v ./etc/isc-dhcp-server /etc/default/isc-dhcp-server
-cp -v ./etc/interfaces /etc/network/interfaces
-cp -v ./etc/hostapd /etc/default/hostapd
-cp -v ./etc/sysctl.conf /etc/sysctl.conf
-cp -v ./etc/hostapd.conf  /etc/hostapd/hostapd.conf
-sed -i "s/PASSWORD/$(cat password)/g" /etc/hostapd/hostapd.conf
+cp ./etc/dhcpd.conf /etc/dhcp/dhcpd.conf
+cp ./etc/isc-dhcp-server /etc/default/isc-dhcp-server
+cp ./etc/interfaces /etc/network/interfaces
+cp ./etc/hostapd /etc/default/hostapd
+cp ./etc/sysctl.conf /etc/sysctl.conf
+mkdir -p /etc/hostapd
+cp ./etc/hostapd.conf  /etc/hostapd/hostapd.conf
+sed -i "s/PASSWORD/$(cat ./etc/password)/g" /etc/hostapd/hostapd.conf
 
 ifconfig wlan0 192.168.11.1
 
@@ -60,9 +59,6 @@ service hostapd start
 service isc-dhcp-server start
 update-rc.d hostapd enable
 update-rc.d isc-dhcp-server enable
-
-git clone https://github.com/kragniz/librowind.git
-make -C librowind install
 
 git clone git://github.com/amperka/ino.git
 pushd ino
