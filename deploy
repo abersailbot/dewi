@@ -19,11 +19,15 @@ function check_ssh () {
     fi
 }
 
-function run_on_host () {
+function run () {
     command=$1
     ssh $host $command
 }
 
 check_ssh
 
-run_on_host "echo testing"
+run "mkdir -vp ~/dewi"
+
+# copy local files - only copy files tracked by git
+rsync -vaz --delete --max-size=10M ./ $host:~/dewi
+
