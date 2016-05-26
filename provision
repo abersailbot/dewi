@@ -64,10 +64,14 @@ update-rc.d isc-dhcp-server enable
 git clone https://github.com/kragniz/librowind.git
 make -C librowind install
 
-git clone git://github.com/amperka/ino.git
-pushd ino
-sudo python setup.py install
-popd
+pip install -U platformio
+
+platformio settings set enable_prompts No
+platformio settings set enable_telemetry No
+platformio platforms install atmelavr
+
+
+
 
 sudo wget https://raw.github.com/lurch/rpi-serial-console/master/rpi-serial-console -O /usr/bin/rpi-serial-console
 sudo chmod +x /usr/bin/rpi-serial-console
