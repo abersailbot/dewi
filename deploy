@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -xe
+
+if [ "$#" -ne 1 ]; then
+    echo "Not enough arguments. Usage: $0 <hostname>"
+    exit 1
+fi
+
+host=$1
+
+function check_ssh {
+    status=$(ssh -q $host echo ok 2>&1)
+    if [[ $status == ok ]] ; then
+        echo "Can connect using ssh"
+    else
+        echo "Can't connect with ssh to host $host"
+        exit 1
+    fi
+}
+
+check_ssh
