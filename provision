@@ -17,7 +17,6 @@ apt-get -y install \
     vim-nox \
     wget
 
-cp ./etc/50-rowind.rules /etc/udev/rules.d/
 cp ./etc/51-gps.rules /etc/udev/rules.d/
 cp ./etc/52-arduino.rules /etc/udev/rules.d/
 udevadm control --reload-rules
