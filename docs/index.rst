@@ -8,6 +8,7 @@ Contents:
 
    wiring-standard
    hardware-spec
+   provisioning
    testing
 
 .. include:: ../README.rst
