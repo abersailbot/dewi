@@ -19,6 +19,12 @@ submodules. To do this, run::
 
 This will update the submodules to the latest commit on the default branch.
 
+To deploy, run::
+
+    $ ./deploy <hostname>
+
+Replacing the hostname for the target pi.
+
 Docs
 ====
 
