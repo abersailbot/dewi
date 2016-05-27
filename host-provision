@@ -2,9 +2,8 @@
 
 set -xe
 
-apt-get -y update
+#apt-get -y update
 apt-get -y install \
-    arduino \
     git \
     hostapd \
     isc-dhcp-server \
@@ -15,7 +14,8 @@ apt-get -y install \
     tmux \
     unzip \
     vim-nox \
-    wget
+    wget \
+    python-pip \
 
 cp ./etc/51-gps.rules /etc/udev/rules.d/
 cp ./etc/52-arduino.rules /etc/udev/rules.d/
@@ -65,7 +65,6 @@ platformio settings set enable_prompts No
 platformio settings set enable_telemetry No
 platformio platforms install atmelavr
 
-
-sudo wget https://raw.github.com/lurch/rpi-serial-console/master/rpi-serial-console -O /usr/bin/rpi-serial-console
-sudo chmod +x /usr/bin/rpi-serial-console
-sudo rpi-serial-console disable
+wget https://raw.github.com/lurch/rpi-serial-console/master/rpi-serial-console -O /usr/bin/rpi-serial-console
+chmod +x /usr/bin/rpi-serial-console
+rpi-serial-console disable

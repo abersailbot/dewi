@@ -3,8 +3,13 @@
 set -xe
 
 if [ "$#" -ne 1 ]; then
-    echo "Not enough arguments. Usage: $0 <hostname>"
-    exit 1
+    command="redeploy"
+    if [ "$#" -ne 2 ]; then
+        echo "Not enough arguments. Usage: $0 <hostname> or $0 <hostname> provision"
+        exit 1
+    else
+        command=$2
+    fi
 fi
 
 host=$1
@@ -20,9 +25,20 @@ function check_ssh () {
 }
 
 function run () {
-    command=$1
-    ssh $host $command
+    cmd=$1
+    ssh $host $cmd
 }
+
+function download_pip () {
+    dir=$1
+    mkdir -p pip-cache
+    pip install --download pip-cache --no-use-wheel $dir
+}
+
+# TODO: do this in a different script so ./deploy can be run offline
+download_pip ./boatd
+download_pip ./dewi-behaviour
+download_pip ./python-boatd
 
 check_ssh
 
@@ -31,4 +47,8 @@ run "mkdir -vp ~/dewi"
 # copy local files - only copy files tracked by git
 rsync -vaz --delete --max-size=10M ./ $host:~/dewi
 
-run "cd ~/dewi; sudo ./provision"
+if [ "$command" = "provision" ]; then
+    run "cd ~/dewi; sudo ./host-provision"
+fi
+
+run "cd ~/dewi; sudo ./host-deploy"

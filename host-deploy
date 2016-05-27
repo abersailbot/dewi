@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -xe
+
+function install_cache () {
+    pip install --upgrade --no-index --find-links ./pip-cache $1
+}
+
+install_cache ./boatd
+install_cache ./dewi-behaviour
+install_cache ./python-boatd
