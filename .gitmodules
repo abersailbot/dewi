@@ -13,3 +13,6 @@
 [submodule "dewi-hardware"]
 	path = dewi-hardware
 	url = https://github.com/abersailbot/dewi-hardware.git
+[submodule "python-boatd"]
+	path = python-boatd
+	url = https://github.com/boatd/python-boatd.git
