@@ -2,7 +2,7 @@
 
 set -xe
 
-#apt-get -y update
+apt-get -y update
 apt-get -y install \
     git \
     hostapd \
@@ -43,28 +43,8 @@ iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
 iptables-save > /etc/iptables.ipv4.nat
 
-wget http://www.adafruit.com/downloads/adafruit_hostapd.zip 
-unzip -fo adafruit_hostapd.zip
-rm adafruit_hostapd.zip
-
-if [[ ! -f /usr/sbin/hostapd.ORIG ]]; then
-    mv -v /usr/sbin/hostapd /usr/sbin/hostapd.ORIG
-fi
-
-mv -v hostapd /usr/sbin
-chmod 755 /usr/sbin/hostapd
-
-service hostapd start
-service isc-dhcp-server start
-update-rc.d hostapd enable
-update-rc.d isc-dhcp-server enable
-
 pip install -U platformio
 
 platformio settings set enable_prompts No
 platformio settings set enable_telemetry No
 platformio platforms install atmelavr
-
-wget https://raw.github.com/lurch/rpi-serial-console/master/rpi-serial-console -O /usr/bin/rpi-serial-console
-chmod +x /usr/bin/rpi-serial-console
-rpi-serial-console disable
