@@ -38,6 +38,7 @@ function download_pip () {
 # TODO: do this in a different script so ./deploy can be run offline
 download_pip ./boatd
 download_pip ./dewi-behaviour
+download_pip ./dewi-boatd-driver
 download_pip ./python-boatd
 
 check_ssh

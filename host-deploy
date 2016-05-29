@@ -8,4 +8,5 @@ function install_cache () {
 
 install_cache ./boatd
 install_cache ./dewi-behaviour
+install_cache ./dewi-boatd-driver
 install_cache ./python-boatd
