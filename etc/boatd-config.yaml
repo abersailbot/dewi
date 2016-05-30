@@ -1,0 +1,22 @@
+boatd:
+    port: 2222
+    interface: 127.0.0.1
+
+plugin_directory: null
+
+plugins:
+    - mavlink:
+        enabled: true
+        device: /dev/ttyUSB0
+        baud: 115200
+
+driver:
+    #file: ~/git/sails-boatd-driver/driver.py
+    module: dewi_boatd_driver
+
+
+behaviours:
+    - station-keeping:
+        file: station-keeping-behaviour
+    - idle:
+        file: idle-behaviour
