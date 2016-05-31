@@ -1,0 +1,9 @@
+[Unit]
+Description=Robotic sailing boat daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/boatd
+
+[Install]
+WantedBy=default.target

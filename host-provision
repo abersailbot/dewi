@@ -16,8 +16,13 @@ apt-get -y install \
     vim-nox \
     wget \
     python-pip \
+    gpsd \
+    python-gps
 
 cp ./etc/boatd-config.yaml /etc
+
+cp ./etc/boatd.service /etc/systemd/system/boatd.service
+systemctl daemon-reload
 
 cp ./etc/51-gps.rules /etc/udev/rules.d/
 cp ./etc/52-arduino.rules /etc/udev/rules.d/
@@ -35,15 +40,15 @@ mkdir -p /etc/hostapd
 cp ./etc/hostapd.conf  /etc/hostapd/hostapd.conf
 sed -i "s/PASSWORD/$(cat ./etc/password)/g" /etc/hostapd/hostapd.conf
 
-ifconfig wlan0 192.168.11.1
+#ifconfig wlan0 192.168.11.1
 
-sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
+#sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
 
-iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
-iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
+#iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+#iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+#iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
-iptables-save > /etc/iptables.ipv4.nat
+#iptables-save > /etc/iptables.ipv4.nat
 
 pip install -U platformio
 
