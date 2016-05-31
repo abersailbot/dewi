@@ -10,3 +10,7 @@ install_cache ./boatd
 install_cache ./dewi-behaviour
 install_cache ./dewi-boatd-driver
 install_cache ./python-boatd
+
+cp ./etc/boatd.service /etc/systemd/system/boatd.service
+systemctl daemon-reload
+systemctl restart boatd.service
