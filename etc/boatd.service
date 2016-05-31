@@ -1,6 +1,8 @@
 [Unit]
 Description=Robotic Sailing Boat Daemon
 After=network.target
+Requires=gpsd.service
+After=gpsd.service
 
 [Service]
 ExecStart=/usr/local/bin/boatd
