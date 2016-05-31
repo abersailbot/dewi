@@ -1,5 +1,5 @@
 [Unit]
-Description=Robotic sailing boat daemon
+Description=Robotic Sailing Boat Daemon
 After=network.target
 
 [Service]
