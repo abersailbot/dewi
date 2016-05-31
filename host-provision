@@ -17,6 +17,8 @@ apt-get -y install \
     wget \
     python-pip \
 
+cp ./etc/boatd-config.yaml /etc
+
 cp ./etc/51-gps.rules /etc/udev/rules.d/
 cp ./etc/52-arduino.rules /etc/udev/rules.d/
 udevadm control --reload-rules
