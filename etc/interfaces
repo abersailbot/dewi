@@ -1,17 +1,18 @@
 auto lo
-
 iface lo inet loopback
 
-allow-hotplug eth0
-iface eth0 inet static
-  address 192.168.1.4
-  netmask 255.255.255.0
-  gateway 192.168.1.1
-  broadcast 192.168.1.255
+iface eth0 inet manual
 
 allow-hotplug wlan0
 iface wlan0 inet static
-  address 192.168.11.1
-  netmast 255.255.255.0
+  address 192.168.42.1
+  netmask 255.255.255.0
+
+allow-hotplug wlan1
+iface wlan1 inet static
+    address 192.168.2.60
+    netmask 255.255.255.0
+    wpa-ssid "TomAberSailbot"
+    wpa-psk "PASSWORD"
 
 up iptables-restore < /etc/iptables.ipv4.nat
