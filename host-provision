@@ -29,6 +29,7 @@ systemctl daemon-reload
 
 cp ./etc/51-gps.rules /etc/udev/rules.d/
 cp ./etc/52-arduino.rules /etc/udev/rules.d/
+cp ./etc/10-network-device.rules /etc/udev/rules.d/
 udevadm control --reload-rules
 
 cp ./etc/hostname /etc/hostname
