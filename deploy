@@ -45,6 +45,8 @@ check_ssh
 
 run "mkdir -vp ~/dewi"
 
+# install rsync
+run "sudo apt-get install rsync"
 # copy local files
 rsync -va --no-inc-recursive --delete --max-size=10M --exclude 'dewi-hardware' ./ $host:~/dewi
 
