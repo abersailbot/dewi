@@ -45,8 +45,8 @@ check_ssh
 
 run "mkdir -vp ~/dewi"
 
-# copy local files - only copy files tracked by git
-rsync -va --delete --max-size=10M ./ $host:~/dewi
+# copy local files
+rsync -va --no-inc-recursive --delete --max-size=10M --exclude 'dewi-hardware' ./ $host:~/dewi
 
 if [ "$command" = "provision" ]; then
     run "cd ~/dewi; sudo ./host-provision"
