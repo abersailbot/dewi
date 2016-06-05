@@ -15,9 +15,12 @@ apt-get -y install \
     unzip \
     vim-nox \
     wget \
-    python-pip \
     gpsd \
     python-gps
+
+# using python-pip installed from apt has some pretty bad issues on the current
+# version of raspbian.
+easy_install pip
 
 cp ./etc/boatd-config.yaml /etc
 
