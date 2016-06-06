@@ -16,6 +16,7 @@ apt-get -y install \
     vim-nox \
     wget \
     gpsd \
+    gpsd-clients \
     python-gps
 
 # using python-pip installed from apt has some pretty bad issues on the current
