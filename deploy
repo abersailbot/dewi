@@ -29,18 +29,6 @@ function run () {
     ssh $host $cmd
 }
 
-function download_pip () {
-    dir=$1
-    mkdir -p pip-cache
-    pip install --download pip-cache --no-use-wheel $dir
-}
-
-# TODO: do this in a different script so ./deploy can be run offline
-download_pip ./boatd
-download_pip ./dewi-behaviour
-download_pip ./dewi-boatd-driver
-download_pip ./python-boatd
-
 check_ssh
 
 run "mkdir -vp ~/dewi"

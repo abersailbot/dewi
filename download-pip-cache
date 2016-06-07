@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -xe
+
+function download_pip () {
+    dir=$1
+    mkdir -p pip-cache
+   pip install --download pip-cache --no-use-wheel $dir
+}
+
+download_pip ./boatd
+download_pip ./dewi-behaviour
+download_pip ./dewi-boatd-driver
+download_pip ./python-boatd
