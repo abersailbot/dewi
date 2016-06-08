@@ -7,7 +7,7 @@ plugin_directory: null
 plugins:
     - mavlink:
         enabled: true
-        device: /dev/ttyUSB0
+        device: '/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AD01UBXA-if00-port0'
         baud: 115200
 
 driver:
