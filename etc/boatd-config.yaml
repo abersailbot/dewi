@@ -9,6 +9,10 @@ plugins:
         enabled: true
         device: '/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AD01UBXA-if00-port0'
         baud: 115200
+    - logger:
+        enabled: true
+        period: 1
+        filename: /var/log/boatd/long_distance
 
 driver:
     #file: ~/git/sails-boatd-driver/driver.py
