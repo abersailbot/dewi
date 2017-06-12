@@ -17,7 +17,8 @@ apt-get -y install \
     wget \
     gpsd \
     gpsd-clients \
-    python-gps
+    python-gps \
+    fish
 
 # using python-pip installed from apt has some pretty bad issues on the current
 # version of raspbian.
