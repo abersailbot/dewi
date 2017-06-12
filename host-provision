@@ -23,6 +23,8 @@ apt-get -y install \
 # version of raspbian.
 easy_install pip
 
+pip install -U platformio
+
 cp ./etc/boatd-config.yaml /etc
 
 cp ./etc/boatd.service /etc/systemd/system/boatd.service
