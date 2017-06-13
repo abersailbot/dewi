@@ -19,6 +19,11 @@ submodules. To do this, run::
 
 This will update the submodules to the latest commit on the default branch.
 
+To update all submodules to the latest branch run:
+    
+    $ git submodule foreach git checkout master
+    $ git submodule foreach git pull origin master
+
 To deploy, run::
 
     $ ./deploy <hostname>
