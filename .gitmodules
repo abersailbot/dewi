@@ -1,15 +1,15 @@
 [submodule "dewi-boatd-driver"]
 	path = dewi-boatd-driver
-	url = https://github.com/abersailbot/dewi-boatd-driver
+	url = https://github.com/abersailbot/dewi-boatd-driver.git
 [submodule "dewi-behaviour"]
 	path = dewi-behaviour
-	url = https://github.com/abersailbot/dewi-behaviour
+	url = https://github.com/abersailbot/dewi-behaviour.git
 [submodule "dewi-arduino"]
 	path = dewi-arduino
-	url = https://github.com/abersailbot/dewi-arduino
+	url = https://github.com/abersailbot/dewi-arduino.git
 [submodule "boatd"]
 	path = boatd
-	url = https://github.com/boatd/boatd
+	url = https://github.com/abersailbot/boatd
 [submodule "dewi-hardware"]
 	path = dewi-hardware
 	url = https://github.com/abersailbot/dewi-hardware.git
