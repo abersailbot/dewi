@@ -16,3 +16,6 @@
 [submodule "python-boatd"]
 	path = python-boatd
 	url = https://github.com/boatd/python-boatd.git
+[submodule "dewi-deploy"]
+	path = dewi-deploy
+	url = https://github.com/abersailbot/dewi-deploy.git
